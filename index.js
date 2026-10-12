@@ -5,7 +5,8 @@ const http = require('http');
 // Public OAuth client IDs are safe in the browser. Never put a client secret here.
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '';
 const PORT = Number(process.env.PORT || 3000);
-const DIST = path.join(__dirname, 'dist');
+// Vercel's "Other" framework preset serves the generated public directory.
+const DIST = path.join(__dirname, 'public');
 
 const html = String.raw`<!doctype html>
 <html lang="en">
@@ -106,7 +107,7 @@ const html = String.raw`<!doctype html>
 function build() {
   fs.mkdirSync(DIST, { recursive: true });
   fs.writeFileSync(path.join(DIST, 'index.html'), html.replace('__CLIENT_ID__', JSON.stringify(CLIENT_ID).replace(/</g, '\\u003c')));
-  console.log('Built dist/index.html');
+  console.log('Built public/index.html');
 }
 
 function serve() {
