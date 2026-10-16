@@ -3,7 +3,7 @@ const path = require('path');
 const http = require('http');
 
 // Public OAuth client IDs are safe in the browser. Never put a client secret here.
-const CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '';
+const CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '520735786825-ntql7q436uenr7noe5ss4cv18lbje0po.apps.googleusercontent.com';
 const PORT = Number(process.env.PORT || 3000);
 // Vercel's "Other" framework preset serves the generated public directory.
 const DIST = path.join(__dirname, 'public');
